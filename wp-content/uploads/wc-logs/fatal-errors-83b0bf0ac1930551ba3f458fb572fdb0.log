@@ -1,0 +1,18 @@
+2017-10-29T23:59:39+00:00 CRITICAL Uncaught Error: Call to undefined method Wp_store_About_Theme::wp_store_call_plugin_api() in /Users/michellebutts/Documents/Sites/wp-content/themes/wp-store/inc/wp-store-about.php:416
+Stack trace:
+#0 /Users/michellebutts/Documents/Sites/wp-includes/class-wp-hook.php(298): Wp_store_About_Theme->wp_store_plugin_activation_callback('')
+#1 /Users/michellebutts/Documents/Sites/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#2 /Users/michellebutts/Documents/Sites/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /Users/michellebutts/Documents/Sites/wp-admin/admin-ajax.php(91): do_action('wp_ajax_wp_stor...')
+#4 {main}
+  thrown
+
+2017-10-30T00:25:21+00:00 CRITICAL Uncaught Error: Call to undefined method Wp_store_About_Theme::wp_store_call_plugin_api() in /Users/michellebutts/Documents/Sites/wp-content/themes/wp-store/inc/wp-store-about.php:416
+Stack trace:
+#0 /Users/michellebutts/Documents/Sites/wp-includes/class-wp-hook.php(298): Wp_store_About_Theme->wp_store_plugin_activation_callback('')
+#1 /Users/michellebutts/Documents/Sites/wp-includes/class-wp-hook.php(323): WP_Hook->apply_filters('', Array)
+#2 /Users/michellebutts/Documents/Sites/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /Users/michellebutts/Documents/Sites/wp-admin/admin-ajax.php(91): do_action('wp_ajax_wp_stor...')
+#4 {main}
+  thrown
+

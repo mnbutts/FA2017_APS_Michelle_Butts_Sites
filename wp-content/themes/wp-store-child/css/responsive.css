@@ -1,0 +1,7 @@
+@media screen and (max-width: 540px) {
+
+	.buttom-header .wrap-right {
+	    text-align: right;
+	    width: 50%;
+	}
+}
