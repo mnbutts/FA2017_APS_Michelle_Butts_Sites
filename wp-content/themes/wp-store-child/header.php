@@ -100,20 +100,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="menu-wrap">
-					<div class="ed-container">
-
-						<?php if(get_theme_mod('wp_store_header_setting_search_option') =='1'){ ?>
-						<div class="header-search">
-							<a href="javascript:void(0)"><i class="fa fa-search"></i></a>
-							<div class="search-box">
-								<div class="close"> &times; </div>
-								<?php get_template_part('searchform-header'); ?>
-							</div>
-						</div> <!--  search-form-->
-						<?php } ?>
-					</div>
-				</div>
 				<div class="buttom-header">
 					<div class="ed-container">
 						<div class="site-branding">
@@ -129,11 +115,6 @@
 								</a>
 							</div>
 						</div><!-- .site-branding -->
-						<nav id="site-navigation" class="main-navigation" role="navigation">
-							<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'wp-store' ); ?></button>
-							<div class="close"> &times; </div>
-							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-						</nav><!-- #site-navigation -->
 						<div class="wrap-right">
 							<div class="header-call-to">
 								<?php
@@ -163,7 +144,24 @@
 						</div>
 					</div>
 				</div>
-
+				<div class="menu-wrap">
+					<div class="ed-container">
+						<nav id="site-navigation" class="main-navigation" role="navigation">
+							<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'wp-store' ); ?></button>
+							<div class="close"> &times; </div>
+							<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+						</nav><!-- #site-navigation -->
+						<?php if(get_theme_mod('wp_store_header_setting_search_option') =='1'){ ?>
+						<div class="header-search">
+							<a href="javascript:void(0)"><i class="fa fa-search"></i></a>
+							<div class="search-box">
+								<div class="close"> &times; </div>
+								<?php get_template_part('searchform-header'); ?>
+							</div>
+						</div> <!--  search-form-->
+						<?php } ?>
+					</div>
+				</div>
 			</header><!-- #masthead -->
 
 			<div id="content" class="site-content">

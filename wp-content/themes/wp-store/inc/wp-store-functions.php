@@ -1,5 +1,5 @@
 <?php
-	// function for weblayout 
+	// function for weblayout
 if( ! function_exists( 'wp_store_custom_weblayout_class' ) ){
 	function wp_store_custom_weblayout_class($classes){
 		$header_class = esc_attr(get_theme_mod('wp_store_basic_setting_webpage_layout','fullwidth'));
@@ -27,7 +27,7 @@ if( ! function_exists( 'wp_store_custom_header_tag_index_page' ) ){
 }
 add_filter( 'body_class', 'wp_store_custom_header_tag_index_page' );
 
-	// function for archive pagelayout in body class 
+	// function for archive pagelayout in body class
 if( ! function_exists( 'wp_store_custom_header_tag_archive_page' ) ){
 	function wp_store_custom_header_tag_archive_page($classes){
 		$header_class = "";
@@ -58,7 +58,7 @@ if( ! function_exists( 'wp_store_custom_header_tag_single_page' ) ){
 				$header_class .= $sidebar;
 			else:
 				$header_class .= esc_attr(get_theme_mod('wp_store_innerpage_setting_single_page_layout','right-sidebar'));
-			endif;		        
+			endif;
 		}
 		$classes[] = $header_class;
 		return $classes;
@@ -80,7 +80,7 @@ if( ! function_exists( 'wp_store_custom_header_tag_single_post' ) ){
 				$header_class .= $sidebar;
 			else:
 				$header_class .= esc_attr(get_theme_mod('wp_store_innerpage_setting_single_post_layout','right-sidebar'));
-			endif;		        
+			endif;
 		endif;
 		$classes[] = $header_class;
 		return $classes;
@@ -158,7 +158,7 @@ function wp_store_get_title($title){
 		if($count>=3){$wp_title .= " ".$arr[$i++];}
 		$wp_title .= "</p>";
 		$wp_title .= "<p class='other-all'>";
-		for ($j=$i; $j < $count; $j++) { 
+		for ($j=$i; $j < $count; $j++) {
 			$wp_title .= $arr[$j]." ";
 		}
 		$wp_title .= "</p>";
@@ -201,23 +201,23 @@ function wp_store_slider_section_cb(){
 	?>
 	<section id="slider-section" class="slider">
 		<script type="text/javascript">
-			jQuery(document).ready(function($) { 
+			jQuery(document).ready(function($) {
 				$("#main-slider").owlCarousel({
 					autoPlay: <?php echo esc_attr($auto_transition); ?>,
 					navigation: <?php echo esc_attr($show_controls); ?>,
 					pagination: <?php echo esc_attr($show_pager); ?>,
 					transitionStyle: "<?php echo esc_attr($slider_transition); ?>",
 					singleItem:true,
-					paginationNumbers: true,						
+					paginationNumbers: true,
 					loop: true,
-					afterAction: function(el){ 
-						//remove class active 
+					afterAction: function(el){
+						//remove class active
 						this .$owlItems .removeClass('active')
-							//add class active 
-							this .$owlItems //owl internal $ object containing items 
-							.eq(this.currentItem) .addClass('active') 
+							//add class active
+							this .$owlItems //owl internal $ object containing items
+							.eq(this.currentItem) .addClass('active')
 						}
-					}); 
+					});
 
 			});
 
@@ -225,42 +225,42 @@ function wp_store_slider_section_cb(){
 		<?php
 		$loop = new WP_Query(array(
 			'cat' => $slider_category,
-			'posts_per_page' => -1    
+			'posts_per_page' => -1
 			));
 
 			?>
 			<div id="main-slider" class = "owl-slider">
 				<?php
-				if($loop->have_posts()) : 
+				if($loop->have_posts()) :
 					while($loop->have_posts()) : $loop-> the_post();
-				$image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full', false );		                    
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full', false );
 				?>
 				<div class="slides" style="background-image:url(<?php echo esc_url($image[0]); ?>);">
 					<?php if($show_caption == '1'): ?>
-						<div class="caption-wrapper">  
+						<div class="caption-wrapper">
 							<div class="ed-container">
 								<div class="slider-caption">
 									<div class="mid-content">
-										<div class="small-caption"> 
-											<?php the_title(); ?>										
+										<div class="small-caption">
+											<?php the_title(); ?>
 										</div>
 										<div class="slider-content">
-											<?php the_content(); 
+											<?php the_content();
 											?>
 										</div>
 
 									</div>
 								</div>
 							</div>
-						</div>  
-					<?php  endif; ?> 
+						</div>
+					<?php  endif; ?>
 				</div>
-				<?php 
+				<?php
 				endwhile;
 				wp_reset_query();
 				endif; ?>
-			</div>  
-		</section>			
+			</div>
+		</section>
 		<?php
 	}
 	add_action('wp_store_slider_section','wp_store_slider_section_cb', 10);
@@ -272,7 +272,7 @@ function wp_store_slider_section_cb(){
 			$promo_category = get_theme_mod('wp_store_homepage_setting_promo_category');
 		?>
 		<div id="promo-section" class = 'clearfix'>
-			<?php 
+			<?php
 			$args = array('cat' => $promo_category, 'post_status' => 'publish','post_type' => 'post');
 			$query = new WP_Query($args);
 			while($query->have_posts()):
@@ -292,7 +292,7 @@ function wp_store_slider_section_cb(){
 			wp_reset_query();
 			?>
 		</div>
-		<?php 
+		<?php
 		endif;
 	}
 	add_action('wp_store_promo_section','wp_store_promo_section_cb');
@@ -379,7 +379,7 @@ function wp_store_slider_section_cb(){
 					<?php
 					$loop = new WP_Query(array(
 						'cat' => $ticker_category,
-						'posts_per_page' => -1    
+						'posts_per_page' => -1
 						));
 					if($loop->have_posts()) {
 						?>
@@ -394,7 +394,7 @@ function wp_store_slider_section_cb(){
 								<li>
 									<h5 class="ticker_tick ticker-h5-<?php echo esc_attr($i); ?>"><a href="<?php the_permalink();?>"><?php the_title(); ?> </a></h5>
 								</li>
-								<?php  
+								<?php
 							}
 							?>
 						</ul>
@@ -520,7 +520,7 @@ function wp_store_slider_section_cb(){
 	}
 
 	// to add primary div after breadcrumb
-	function wp_store_primary(){		
+	function wp_store_primary(){
 		echo '<div id="primary">';
 	}
 
@@ -531,11 +531,11 @@ function wp_store_slider_section_cb(){
 		if(is_active_sidebar('shop-sidebar')){
 			?>
 			<div class='shop-sidebar'>
-				<?php 
-				dynamic_sidebar('shop-sidebar');	
+				<?php
+				dynamic_sidebar('shop-sidebar');
 				?>
 			</div>
-			<?php			
+			<?php
 		}
 		echo'</div>';
 
@@ -549,7 +549,7 @@ function wp_store_slider_section_cb(){
 						dynamic_sidebar('widget-area-two');
 						?>
 					</div>
-				</div>			
+				</div>
 				<?php
 			}
 		}
@@ -565,7 +565,7 @@ function wp_store_slider_section_cb(){
 			} else {
 				$xr = 3;
 			}
-			return intval($xr); 
+			return intval($xr);
 		}
 	}
 	global $num_products;
@@ -592,7 +592,7 @@ function wp_store_slider_section_cb(){
 
 			add_action('woocommerce_single_product_summary', 'wp_store_add_to_wishlist_single_product', 35 );
 			function wp_store_add_to_wishlist_single_product(){
-				echo do_shortcode('[yith_wcwl_add_to_wishlist]');	
+				echo do_shortcode('[yith_wcwl_add_to_wishlist]');
 			}
 
 
@@ -608,13 +608,13 @@ function wp_store_slider_section_cb(){
 						<a class="quick-wishlist" href="<?php echo esc_url($wishlist_url); ?>" title="<?php esc_attr_e('Wishlist','wp-store');?>">
 							<i class="fa fa-heart"></i>
 							<span class="my-wishlist">
-								<?php esc_html_e('Whishlist','wp-store'); 
-								if(yith_wcwl_count_products() > 0) echo ' ['.absint(yith_wcwl_count_products()).']'; ?>		
+								<?php esc_html_e('Whishlist','wp-store');
+								if(yith_wcwl_count_products() > 0) echo ' ['.absint(yith_wcwl_count_products()).']'; ?>
 							</span>
 						</a>
 					</div>
-					<?php			
-				}	
+					<?php
+				}
 
 			}
 			// Header wishlist icon ajax update
@@ -665,7 +665,7 @@ function wp_store_slider_section_cb(){
 	// Ensure cart contents update when products are added to the cart via AJAX (place the following in functions.php)
 	add_filter( 'woocommerce_add_to_cart_fragments', 'wp_store_woocommerce_header_add_to_cart_fragment' );
 	function wp_store_woocommerce_header_add_to_cart_fragment( $fragments ) {
-		ob_start();		 
+		ob_start();
 		if(wp_store_woocommerce_available()):
 			?>
 		<a class="cart-content" href="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'wp-store' ); ?>">
@@ -674,10 +674,10 @@ function wp_store_slider_section_cb(){
 				<span class="cart-title"><?php esc_html_e('Shopping Cart','wp-store');?></span>
 				<span class="cart-count"><?php echo wp_kses_data(sprintf( _n( '%1$s Item', '%1$s Items', WC()->cart->get_cart_contents_count(), 'wp-store' ), WC()->cart->get_cart_contents_count() ) ); ?></span>
 				<span class="cart-total"><?php echo wp_kses_data( WC()->cart->get_cart_total() ) ; ?></span>
-			</div>	               	
+			</div>
 		</a>
 		<?php
-		endif;				
+		endif;
 		$fragments['a.cart-content'] = ob_get_clean();
 		return $fragments;
 	}
@@ -692,7 +692,7 @@ function wp_store_slider_section_cb(){
 		}
 		if(isset($woocommerce_loop['columns'])){
 			$cols = $woocommerce_loop['columns'];
-		}		
+		}
 		else{
 			$cols='3';
 		}

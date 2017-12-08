@@ -97,7 +97,7 @@ add_action( 'after_setup_theme', 'wp_store_content_width', 0 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function wp_store_widgets_init() {	
+function wp_store_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'wp-store' ),
 		'id'            => 'sidebar-1',
@@ -229,28 +229,28 @@ function wp_store_scripts() {
 		'family' => 'Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic|Satisfy|Droid+Serif:400,400italic,700italic,700',
 		);
 	wp_enqueue_style('wp-store-google-fonts', add_query_arg($font_args, "//fonts.googleapis.com/css"));
-	
+
 	wp_enqueue_style('wp-store-font-awesome', get_template_directory_uri() . '/css/font-awesome.css' );
-	
+
 	wp_enqueue_style('wp-store-slick-css', get_template_directory_uri() . '/css/slick.css' );
-	
+
 	wp_enqueue_style('wp-store-fancybox-css', get_template_directory_uri() . '/css/fancybox.css' );
-	
+
 	wp_enqueue_style('wp-store-owl-css', get_template_directory_uri() . '/css/owl.carousel.css' );
-	
+
 	wp_enqueue_style('wp-store-owl-theme-css', get_template_directory_uri() . '/css/owl.theme.css' );
-	
+
 	wp_enqueue_style('wp-store-owl-transition-css', get_template_directory_uri() . '/css/owl.transitions.css' );
 
 	wp_enqueue_style( 'wp-store-customscroll', get_template_directory_uri() . '/css/jquery.mCustomScrollbar.css');
-	
+
 	wp_enqueue_style( 'wp-store-style', get_stylesheet_uri() );
-	
+
 	if(get_theme_mod('wp_store_basic_setting_responsive_option',1) == 1){
 
-		wp_enqueue_style('wp-store-responsive', get_template_directory_uri() . '/css/responsive.css' );	
+		wp_enqueue_style('wp-store-responsive', get_template_directory_uri() . '/css/responsive.css' );
 	}
-	
+
 	wp_enqueue_script( 'wp-store-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'wp-store-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
