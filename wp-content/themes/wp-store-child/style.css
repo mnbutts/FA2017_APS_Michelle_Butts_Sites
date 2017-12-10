@@ -81,6 +81,10 @@ html {
 #promo-section .promo-text .category > a {
     display: block;
 }
+.promo-block {
+    background-color: black !important;
+    height: 100px;
+}
 img {
     width: 100%;
 }

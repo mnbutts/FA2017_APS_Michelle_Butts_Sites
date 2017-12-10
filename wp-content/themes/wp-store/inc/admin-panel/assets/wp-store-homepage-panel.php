@@ -236,14 +236,33 @@
 			$wp_customize->add_control(
 					'wp_store_homepage_setting_promo_category',
 					array(
-						'label' => __('Choose Category','wp-store'),
+						'label' => __('Choose Product Category 1','wp-store'),
 						'description' => __('Note: Product Categories are only listed in dropdown.','wp-store'),
 						'section' => 'wp_store_homepage_setting_promo',
 						'type'	=> 'select',
 						'choices' => wp_store_child_cat_lists(),
 					)
 				);
+				//select second promo category
+				$wp_customize->add_setting(
+					'wp_store_homepage_setting_promo_category_addition',
+					array(
+						'default' => '3',
+						'capability' => 'edit_theme_options',
+						'sanitize_callback' => 'wp_store_sanitize_integer'
+						)
+					);
 
+				$wp_customize->add_control(
+						'wp_store_homepage_setting_promo_category_addition',
+						array(
+							'label' => __('Choose Product Category 2','wp-store'),
+							'description' => __('Note: Product Categories are only listed in dropdown.','wp-store'),
+							'section' => 'wp_store_homepage_setting_promo',
+							'type'	=> 'select',
+							'choices' => wp_store_child_cat_lists(),
+						)
+					);
 
 		//Widget Area 1 section
 		$wp_customize->add_section(

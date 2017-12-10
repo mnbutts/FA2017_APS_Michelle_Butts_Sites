@@ -195,6 +195,3 @@ function wp_store_child_cat_lists() {
     );
   return $woocommerce_categories;
 }
-
-
-?>
